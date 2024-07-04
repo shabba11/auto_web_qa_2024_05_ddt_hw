@@ -1,7 +1,5 @@
 import requests
 
-from response_models import CreateResourceRequestBody
-
 
 class GectaroHttpClient:
 
@@ -23,6 +21,10 @@ class GectaroHttpClient:
     def post_projects_resource_request(self, data):
         response = self.session.post(f"{self.base_url}/v1/projects/{self.project_id}/resource-requests",
                                      json=data)
+        return response
+
+    def get_projects_resource_request_data(self, project_id):
+        response = self.session.get(f"{self.base_url}/v1/projects/{self.project_id}/resource-requests/{project_id}")
         return response
 
     def delete_projects_resources_request(self, project_id):
