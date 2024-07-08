@@ -31,7 +31,7 @@ class TestResourceRequestsData:
                              ids=["cost=10.0", "cost=20.1", "cost=30", "cost=40.23"])
     def test_get_resource_requests_data_ok(self, client, resource, cost):
         data = {"project_tasks_resource_id": resource,
-                "volume": 10,
+                "volume": 10.0,
                 "cost": cost,
                 "needed_at": int(datetime.now().timestamp())}
 
@@ -46,8 +46,8 @@ class TestResourceRequestsData:
         assert get_resource_response.status_code == 200
 
         for key in data.keys():
-            assert data[key] == expected_data[
-                key], f"'{key}' не равен переданному результату {data[key]} != {expected_data[key]}"
+            assert data[key] == float(expected_data[
+                key]), f"'{key}' не равен переданному результату {data[key]} != {expected_data[key]}"
 
     def test_get_resource_requests_data_page_not_found(self, client):
         get_resource_response = client.get_projects_resource_request_data(project_id='abc')

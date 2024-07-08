@@ -1,5 +1,3 @@
-import pytest
-
 from gectaro_http_client import GectaroHttpClient
 from response_models import ResourceRequestResponse
 
