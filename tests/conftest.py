@@ -47,6 +47,3 @@ def resource(client):
         return resource_id
 
     yield create_resource_request()
-
-    for resource in resource_ids_list:
-        client.delete_projects_resources_request(project_id=resource)
