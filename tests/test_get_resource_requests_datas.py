@@ -18,4 +18,4 @@ class TestGetResourceRequestsDatas:
         client.company_id = 1234567890
         response = client.get_projects_resources_request_datas()
 
-        assert response.status_code == 400
+        assert response.status_code == 404
